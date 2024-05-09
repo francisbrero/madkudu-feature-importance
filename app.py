@@ -44,7 +44,10 @@ def calculate_feature_importance(json_data):
 
     total_reduction = sum(feature_impurity_reduction.values())
     feature_importance = {feature: (reduction / total_reduction) for feature, reduction in feature_impurity_reduction.items()}
-    return feature_importance
+    
+    # Sorting features by absolute importance
+    sorted_features = sorted(feature_importance.items(), key=lambda x: abs(x[1]), reverse=True)
+    return dict(sorted_features)
 
 # Streamlit interface for the app
 st.title('Decision Tree Feature Importance Calculator')
@@ -56,8 +59,9 @@ if st.button('Calculate Feature Importance'):
         st.write("Feature Importance:", importance)
         
         # Plotting feature importance
+        features, values = zip(*importance.items())
         fig, ax = plt.subplots()
-        ax.bar(importance.keys(), importance.values(), color='blue')
+        ax.bar(features, values, color='blue')
         plt.xticks(rotation=45, ha='right')
         plt.xlabel('Features')
         plt.ylabel('Importance')
