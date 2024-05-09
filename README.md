@@ -22,3 +22,6 @@ Run the script
 ```bash
 streamlit run app.py
 ```
+
+## Access via Streamlit Sharing
+
