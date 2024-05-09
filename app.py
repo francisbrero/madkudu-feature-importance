@@ -71,11 +71,19 @@ if st.button('Calculate Feature Importance'):
 # Add a sidebar with some additional information about the app such as the author, the purpose and the GitHub link
 st.sidebar.title('About')
 st.sidebar.info('This app calculates the feature importance of a decision tree model from a JSON input.')
-st.sidebar.info('The app is maintained by Francis Brero @ MadKudu')
-st.sidebar.info('For more information, please check the official [code](https://docs.streamlit.io/library).')
+# Add instructions on how to obtain the JSON
 st.sidebar.markdown('''
-#### Author
-- [Francis Brero](
-    [GitHub](
+#### Instructions:
+1. Log into MadKudu
+2. Open this url: https://studio.madkudu.com/api/tenant/3303/model/3/trees/1
+3. Replace TENANT_NUMBER and MODEL_NUMBER with the ones you are interested in
+4. Copy the JSON data from the request
 ''')
+st.sidebar.title('Author')
+st.sidebar.info('''
+[Francis Brero](https://www.linkedin.com/in/francisbrero/)
+|| [MadKudu](https://www.madkudu.com/)
+|| [GitHub](https://github.com/francisbrero)
+''')
+
 
